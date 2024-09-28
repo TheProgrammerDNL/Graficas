@@ -16,7 +16,7 @@ public class Circunferencia {
          p.dibujarPixel(x, (int) Math.round(y1), g);
          p.dibujarPixel(x, (int) Math.round(y2), g);
       }
-      System.out.print("algoritmoGeneral");
+      System.out.println("algoritmoGeneral");
    }
    
    // x = cos(t)
@@ -44,33 +44,35 @@ public class Circunferencia {
          x = x*cc - y*ss;
          y = y*cc + aux*ss;
       }
-      System.out.print("algoritmoIncremental");
+      System.out.println("algoritmoIncremental");
    }
    
    // Sólo trabaja con enteros.
    public void algoritmoBresenham(int xc, int yc, int radio, Graphics g) {
-      int p,x,y;
+      int pp,x,y;
       x=0;
       y=radio;
-      p=3 - 2*radio;
+      pp=3 - 2*radio;
       while (x<=y) {
-         //Pendientes...
-         p.dibujarPixel(xc+tx, yc+ty, g);
-         p.dibujarPixel(xc-tx, yc+ty, g);
-         p.dibujarPixel(xc+tx, yc-ty, g);
-         p.dibujarPixel(xc-tx, yc-ty, g);
-         p.dibujarPixel(xc+ty, yc+tx, g);
-         p.dibujarPixel(xc-ty, yc+tx, g);
-         p.dibujarPixel(xc+ty, yc-tx, g);
-         p.dibujarPixel(xc-ty, yc-tx, g);
+         p.dibujarPixel(xc+x, yc+y, g);
+         p.dibujarPixel(xc-x, yc+y, g);
+         p.dibujarPixel(xc+x, yc-y, g);
+         p.dibujarPixel(xc-x, yc-y, g);
+         p.dibujarPixel(xc+y, yc+x, g);
+         p.dibujarPixel(xc-y, yc+x, g);
+         p.dibujarPixel(xc+y, yc-x, g);
+         p.dibujarPixel(xc-y, yc-x, g);
          
-         if (p < 0) {
-            if (p == p+4*x + 6) {
-               p = p+4*(x-y) + 10;
-               y--;
-            }
+         if (pp < 0) {
+            pp = pp + 4*x + 6;
+         } else {
+            pp = pp+4*(x-y) + 10;
+            y--;
          }
+         
+         x++;
+         
       }
-      System.out.print("algoritmoBresenham");
+      System.out.println("algoritmoBresenham");
    }
 }

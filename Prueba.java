@@ -5,12 +5,14 @@ import javax.swing.*;
 
 public class Prueba extends JFrame {
    Pixel p;
+   Linea l;
    Circunferencia c;
    int ancho = 1000;
    int alto = 700;
    
    public Prueba() {
       p = new Pixel();
+      l = new Linea();
       c = new Circunferencia();
       setSize(ancho, alto);   //800 * 700   //1000, 700
       setTitle("Práctica Gráfica 3 - Daniel Díaz Larios");
@@ -22,10 +24,12 @@ public class Prueba extends JFrame {
    
    public void paint(Graphics g) {
       super.paint(g);
-      c.algoritmoGeneral(500, 350, 200, g);
-      c.algoritmoIncremental(500, 350, 100, g);
-      c.algoritmoBresenham(500, 350, 150, g);
+      //c.algoritmoGeneral(500, 350, 200, g);
+      //c.algoritmoIncremental(500, 350, 100, g);
+      //c.algoritmoBresenham(500, 350, 150, g);
       //p.dibujarPixel(500, 350, 20, g);
+      
+      l.dibujarLinea(50,50,350,180,5,g);
    }
    
    public static void main(String args[]) {
